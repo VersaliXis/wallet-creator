@@ -11,11 +11,12 @@ class ExceededMaxLoopIterationException(Exception):
     "Raised when the loop exceeds maximum iteration"
     pass
 
+#Generate 3 wallets in each of the shards
 def generate_and_fill_wallets():
     for shard_id in AVAILABLE_SHARDS:
         for _ in range(3):
             address, mnemonic = new_mnemonic_in_shard(shard_id)
-            print(f"Generated {address} in shard {shard_id}")
+            print(f"\n\nGenerated {address} in shard {shard_id}")
             request_testnet_EGLD(address)
 
 #Create a new mnemonic in a given shard
